@@ -10,7 +10,7 @@ https://boisterous-pastelito-956121.netlify.app/
 git clone https://github.com/Glubin-yep/BanderaShop-Front
 ```
 
-## При першому засупуску після клонування ОБОВЯЗКОВО!!!
+## При першому засупуску після клонування ОБОВ'ЯЗКОВО!!!
 ```sh
 npm install
 ```
