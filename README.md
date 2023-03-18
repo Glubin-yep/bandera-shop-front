@@ -7,7 +7,7 @@ https://www.figma.com/file/RTYICdIyXsvDtAkc3Q3ICK/Cloth-Store?node-id=0%3A1&t=n4
 git clone https://github.com/Glubin-yep/BanderaShop-Front
 ```
 
-## При першому засупуску після клонування ОБОВЯЗКОВО!!!
+## При першому засупуску після клонування ОБОВ'ЯЗКОВО!!!
 ```sh
 npm install
 ```
