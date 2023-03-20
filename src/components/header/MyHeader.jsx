@@ -1,5 +1,5 @@
 import React from "react";
-import "./myHeader.css";
+import "../../style.css";
 import logo from "./logo.png";
 import Cart from "./shopping-cart.png";
 import User from "./user.png";
@@ -9,8 +9,7 @@ function MyHeader() {
     <div className="header">
       <div className="header-left">
         <img src={logo} alt="Logo" />
-        <span className="name">Bandera</span>
-        <span className="prefix">shop</span>
+        <span className="name">Bandera<sub className="prefix">shop</sub></span>
       </div>
       <div className="header-right">
         <ul className="nav-list">
@@ -27,7 +26,7 @@ function MyHeader() {
             <a href="/">Аксесуари</a>
           </li>
           <li>
-            <a href="/"><img src={Cart} alt="Cart" /></a>
+            <a href="/"><img src={Cart} alt="Cart" className="cart" /></a>
           </li>
           <li>
           <a href="/"><img src={User} alt="User" /></a>
