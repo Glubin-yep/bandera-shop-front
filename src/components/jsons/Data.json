@@ -1,0 +1,64 @@
+[
+    {"topCloth": [
+        {
+            "sectionTitleTop": "Верхній",
+            "sectionTitleBottom": "одяг",
+            "elements": [
+                {"id": 1, "title": "Футболка", "sizes": "XS S M L XL", "price": "400", "img": "img/shirt.jpeg"},
+                {"id": 2, "title": "Футболка", "sizes": "XS S M L XL", "price": "400", "img": "img/shirt.jpeg"},
+                {"id": 3, "title": "Футболка", "sizes": "XS S M L XL", "price": "400", "img": "img/shirt.jpeg"},
+                {"id": 4, "title": "Футболка", "sizes": "XS S M L XL", "price": "400", "img": "img/shirt.jpeg"},
+                {"id": 5, "title": "Футболка", "sizes": "XS S M L XL", "price": "400", "img": "img/shirt.jpeg"},
+                {"id": 6, "title": "Футболка", "sizes": "XS S M L XL", "price": "400", "img": "img/shirt.jpeg"},
+                {"id": 7, "title": "Футболка", "sizes": "XS S M L XL", "price": "400", "img": "img/shirt.jpeg"},
+                {"id": 8, "title": "Футболка", "sizes": "XS S M L XL", "price": "400", "img": "img/shirt.jpeg"}
+            ]
+        }
+    ]},
+    {"trousers": [
+        {
+            "sectionTitleTop": "Нижній",
+            "sectionTitleBottom": "одяг",
+            "elements": [
+                {"id": 1, "title": "Шорти", "sizes": "XS S M L XL", "price": "700", "img": "img/greenShorts.jpeg"},
+                {"id": 2, "title": "Шорти", "sizes": "XS S M L XL", "price": "700", "img": "img/greenShorts.jpeg"},
+                {"id": 3, "title": "Шорти", "sizes": "XS S M L XL", "price": "700", "img": "img/greenShorts.jpeg"},
+                {"id": 4, "title": "Шорти", "sizes": "XS S M L XL", "price": "700", "img": "img/greenShorts.jpeg"},
+                {"id": 5, "title": "Шорти", "sizes": "XS S M L XL", "price": "700", "img": "img/greenShorts.jpeg"},
+                {"id": 6, "title": "Шорти", "sizes": "XS S M L XL", "price": "700", "img": "img/greenShorts.jpeg"},
+                {"id": 7, "title": "Шорти", "sizes": "XS S M L XL", "price": "700", "img": "img/greenShorts.jpeg"},
+                {"id": 8, "title": "Шорти", "sizes": "XS S M L XL", "price": "700", "img": "img/greenShorts.jpeg"}
+            ]
+        }
+    ]},
+    {"shoes": [
+        {
+            "sectionTitle": "Взуття",
+            "elements": [
+                {"id": 1, "title": "Кросівки", "sizes": "40 41 42 43 44", "price": "1300", "img": "img/grayTopShoes.jpeg"},
+                {"id": 2, "title": "Кросівки", "sizes": "40 41 42 43 44", "price": "1300", "img": "img/grayTopShoes.jpeg"},
+                {"id": 3, "title": "Кросівки", "sizes": "40 41 42 43 44", "price": "1300", "img": "img/grayTopShoes.jpeg"},
+                {"id": 4, "title": "Кросівки", "sizes": "40 41 42 43 44", "price": "1300", "img": "img/grayTopShoes.jpeg"},
+                {"id": 5, "title": "Кросівки", "sizes": "40 41 42 43 44", "price": "1300", "img": "img/grayTopShoes.jpeg"},
+                {"id": 6, "title": "Кросівки", "sizes": "40 41 42 43 44", "price": "1300", "img": "img/grayTopShoes.jpeg"},
+                {"id": 7, "title": "Кросівки", "sizes": "40 41 42 43 44", "price": "1300", "img": "img/grayTopShoes.jpeg"},
+                {"id": 8, "title": "Кросівки", "sizes": "40 41 42 43 44", "price": "1300", "img": "img/grayTopShoes.jpeg"}
+            ]
+        }
+    ]},
+    {"accessories": [
+        {
+            "sectionTitle": "Аксесуари",
+            "elements": [
+                {"id": 1, "title": "Рюкзак", "sizes": "Універсальний", "price": "550", "img": "img/bigBag.jpeg"},
+                {"id": 2, "title": "Рюкзак", "sizes": "Універсальний", "price": "550", "img": "img/bigBag.jpeg"},
+                {"id": 3, "title": "Рюкзак", "sizes": "Універсальний", "price": "550", "img": "img/bigBag.jpeg"},
+                {"id": 4, "title": "Рюкзак", "sizes": "Універсальний", "price": "550", "img": "img/bigBag.jpeg"},
+                {"id": 5, "title": "Рюкзак", "sizes": "Універсальний", "price": "550", "img": "img/bigBag.jpeg"},
+                {"id": 6, "title": "Рюкзак", "sizes": "Універсальний", "price": "550", "img": "img/bigBag.jpeg"},
+                {"id": 7, "title": "Рюкзак", "sizes": "Універсальний", "price": "550", "img": "img/bigBag.jpeg"},
+                {"id": 8, "title": "Рюкзак", "sizes": "Універсальний", "price": "550", "img": "img/bigBag.jpeg"}
+            ]
+        }
+    ]}
+]
