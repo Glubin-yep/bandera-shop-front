@@ -14,16 +14,16 @@ function MyHeader() {
       <div className="header-right">
         <ul className="nav-list">
           <li>
-            <a href="#topCloth">Верхній одяг</a>
+            <a href="/#topCloth">Верхній одяг</a>
           </li>
           <li>
-            <a href="#trousers">Штани</a>
+            <a href="/#trousers">Штани</a>
           </li>
           <li>
-            <a href="#shoes">Взуття</a>
+            <a href="/#shoes">Взуття</a>
           </li>
           <li>
-            <a href="#accessories">Аксесуари</a>
+            <a href="/#accessories">Аксесуари</a>
           </li>
           <li>
             <a href="/"><img src={Cart} alt="Cart" className="cart" /></a>
