@@ -17,7 +17,7 @@ function Main() {
                         DATA[0].topCloth[0].elements && DATA[0].topCloth[0].elements.map((item) =>
                         <a href="#" className="card--href">
                             <div key={item.id} className="card">
-                                <img src={item.img} className="card--photo" />
+                                <img src={item.img} className="card--photo" alt=""/>
                                 <span className="card--title" >{item.title}</span>
                                 <span className="card--sizes" >{item.sizes}</span>
                                 <span className="card--price" >{item.price} грн.</span>
@@ -39,7 +39,7 @@ function Main() {
                         DATA[1].trousers[0].elements && DATA[1].trousers[0].elements.map((item) =>
                         <a href="#" className="card--href">
                             <div key={item.id} className="card">
-                                <img src={item.img} className="card--photo" />
+                                <img src={item.img} className="card--photo" alt=""/>
                                 <span className="card--title" >{item.title}</span>
                                 <span className="card--sizes" >{item.sizes}</span>
                                 <span className="card--price" >{item.price} грн.</span>
@@ -60,7 +60,7 @@ function Main() {
                         DATA[2].shoes[0].elements && DATA[2].shoes[0].elements.map((item) =>
                         <a href="#" className="card--href">
                             <div key={item.id} className="card">
-                                <img src={item.img} className="card--photo" />
+                                <img src={item.img} className="card--photo" alt=""/>
                                 <span className="card--title" >{item.title}</span>
                                 <span className="card--sizes" >{item.sizes}</span>
                                 <span className="card--price" >{item.price} грн.</span>
@@ -81,7 +81,7 @@ function Main() {
                         DATA[3].accessories[0].elements && DATA[3].accessories[0].elements.map((item) =>
                         <a href="#" className="card--href">
                             <div key={item.id} className="card">
-                                <img src={item.img} className="card--photo" />
+                                <img src={item.img} className="card--photo" alt=""/>
                                 <span className="card--title" >{item.title}</span>
                                 <span className="card--sizes" >{item.sizes}</span>
                                 <span className="card--price" >{item.price} грн.</span>
