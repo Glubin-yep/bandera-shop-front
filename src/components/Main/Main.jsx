@@ -15,7 +15,7 @@ function Main() {
                 <div className="cards--block">
                     {
                         DATA[0].topCloth[0].elements && DATA[0].topCloth[0].elements.map((item) =>
-                        <a href="#" className="card--href">
+                        <a href="/" className="card--href">
                             <div key={item.id} className="card">
                                 <img src={item.img} className="card--photo" alt=""/>
                                 <span className="card--title" >{item.title}</span>
@@ -37,7 +37,7 @@ function Main() {
                 <div className="cards--block">
                     {
                         DATA[1].trousers[0].elements && DATA[1].trousers[0].elements.map((item) =>
-                        <a href="#" className="card--href">
+                        <a href="/" className="card--href">
                             <div key={item.id} className="card">
                                 <img src={item.img} className="card--photo" alt=""/>
                                 <span className="card--title" >{item.title}</span>
@@ -58,7 +58,7 @@ function Main() {
                 <div className="cards--block">
                     {
                         DATA[2].shoes[0].elements && DATA[2].shoes[0].elements.map((item) =>
-                        <a href="#" className="card--href">
+                        <a href="/" className="card--href">
                             <div key={item.id} className="card">
                                 <img src={item.img} className="card--photo" alt=""/>
                                 <span className="card--title" >{item.title}</span>
@@ -79,7 +79,7 @@ function Main() {
                 <div className="cards--block">
                     {
                         DATA[3].accessories[0].elements && DATA[3].accessories[0].elements.map((item) =>
-                        <a href="#" className="card--href">
+                        <a href="/" className="card--href">
                             <div key={item.id} className="card">
                                 <img src={item.img} className="card--photo" alt=""/>
                                 <span className="card--title" >{item.title}</span>
