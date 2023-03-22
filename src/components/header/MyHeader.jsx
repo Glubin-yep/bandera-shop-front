@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "../../style.css";
 import logo from "./logo.png";
@@ -15,16 +14,16 @@ function MyHeader() {
       <div className="header-right">
         <ul className="nav-list">
           <li>
-            <a href="/">Верхній одяг</a>
+            <a href="#topCloth">Верхній одяг</a>
           </li>
           <li>
-            <a href="/">Штани</a>
+            <a href="#trousers">Штани</a>
           </li>
           <li>
-            <a href="/">Взуття</a>
+            <a href="#shoes">Взуття</a>
           </li>
           <li>
-            <a href="/">Аксесуари</a>
+            <a href="#accessories">Аксесуари</a>
           </li>
           <li>
             <a href="/"><img src={Cart} alt="Cart" className="cart" /></a>
