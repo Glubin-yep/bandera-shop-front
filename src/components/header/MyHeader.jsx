@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../style.css";
 import logo from "./logo.png";
 import Cart from "./shopping-cart.png";
-import User from "./user.png";
+import User from "./user.png"
+
+import LoginForm from "../login/loginForm";
 
 function MyHeader() {
+  const [showLoginForm, setShowLoginForm] = useState(false);
+
+  const handleClick = event => {
+    setShowLoginForm(true);
+  };
+
   return (
     <div className="header">
       <div className="header-left">
@@ -26,15 +34,18 @@ function MyHeader() {
             <a href="#accessories">Аксесуари</a>
           </li>
           <li>
-            <a href="/"><img src={Cart} alt="Cart" className="cart" /></a>
+            <a href="#"><img src={Cart} alt="Cart" className="cart" /></a>
           </li>
           <li>
-          <a href="/"><img src={User} alt="User" /></a>
+              <a > <img src={User} alt="User" onClick = {handleClick}/></a>
           </li>
         </ul>
       </div>
+      {showLoginForm && <LoginForm />}
     </div>
   );
 }
+
+
 
 export default MyHeader;
