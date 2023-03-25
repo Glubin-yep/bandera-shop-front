@@ -1,18 +1,31 @@
-import React, { useState } from "react";
+import { observer } from "mobx-react-lite";
+import React, { useContext, useState, useEffect } from "react";
+import { Context } from "../../index";
+import { useNavigate } from "react-router-dom";
+import "./test.css";
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(" ");
+  const [password, setPassword] = useState(" ");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [openDialog, setOpenDialog] = useState(true);
+  const [authMode, setAuthMode] = useState("signIn");
+  const { store } = useContext(Context);
+  const navigate = useNavigate();
 
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-  };
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      await store.checkAuth();
+      console.log(store.isAuthenticated);
+      if (store.isAuthenticated) {
+        setAuthMode("logout");
+      }
+    };
+    checkAuthentication();
+  }, [store]);
+
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
 
@@ -35,7 +48,7 @@ function LoginForm() {
 
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
-    // validate confirmation password
+    //validate confirmation password
     if (event.target.value !== password) {
       setConfirmPasswordError("Passwords do not match.");
     } else {
@@ -43,11 +56,11 @@ function LoginForm() {
     }
   };
 
-  const handleSignUpClick = () => {
-    setShowConfirmPassword(true);
+  const changeAuthMode = () => {
+    setAuthMode(authMode === "signIn" ? "sighUp" : "signIn");
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (passwordError) {
@@ -64,87 +77,148 @@ function LoginForm() {
       alert(confirmPasswordError.concat());
       return;
     }
-    // handle form submission logic here, such as calling your login API
-    console.log("Email:", email);
-    console.log("Password:", password);
+
+    if (authMode === "signIn") {
+      await store.Login(email, password);
+      navigate("/");
+    }
+
+    if (authMode === "sighUp") {
+      await store.registration(email, password);
+      navigate("/");
+    }
   };
 
-  return (
-    <div>
-      {openDialog && (
-        <div
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: "white",
-              padding: "30px",
-              borderRadius: "10px",
-              height: 350,
-            }}
-          >
+  const handlelogout = (event) => {
+    store.logout();
+  };
 
-            <form onSubmit={handleSubmit}
-            style={{
-              }}
+  if (authMode === "logout") {
+    return (
+      <div className="Auth-form-container">
+        <form className="Auth-form">
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">logout</h3>
+
+            <div className="d-grid gap-2 mt-3">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={handlelogout}
               >
-              <div>
-                <label htmlFor="email">Email:</label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={handleEmailChange}
-                />
-                {emailError && <span>{emailError}</span>}
-              </div>
-              <div>
-                <label htmlFor="password">Password:</label>
-                <input
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={handlePasswordChange}
-                />
-                {passwordError && <span>{passwordError}</span>}
-              </div>
-              {showConfirmPassword ? (
-                <div>
-                  <label htmlFor="confirmPassword">Confirm Password:</label>
-                  <input
-                    type="password"
-                    id="confirmPassword"
-                    value={confirmPassword}
-                    onChange={handleConfirmPasswordChange}
-                  />
-                  {confirmPasswordError && <span>{confirmPasswordError}</span>}
-                </div>
-              ) : (
-                <button type="button" onClick={handleSignUpClick}>
-                  Sign Up
-                </button>
-              )}
-              {showConfirmPassword && <button type="submit">Login</button>}
-            </form>
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <a href="/"> <button onClick={handleCloseDialog}>Close</button> </a>
+                logout
+              </button>
             </div>
           </div>
-        </div>
-      )}
-    </div>
-  );
+        </form>
+      </div>
+    );
+  }
+  
+  if (authMode === "signIn") {
+    return (
+      <div className="Auth-form-container">
+        <form className="Auth-form">
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">Sign In</h3>
+            <div className="text-center">
+              Not registered yet?{" "}
+              <span className="link-primary" onClick={changeAuthMode}>
+                Sign Up
+              </span>
+            </div>
+            <div className="form-group mt-3">
+              <label>Email address</label>
+              <input
+                type="email"
+                className="form-control mt-1"
+                placeholder="Enter email"
+                onChange={handleEmailChange}
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control mt-1"
+                placeholder="Enter password"
+                onChange={handlePasswordChange}
+              />
+            </div>
+            <div className="d-grid gap-2 mt-3">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            </div>
+            <p className="text-center mt-2">
+              Forgot <a href="#">password?</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    );
+  }
+
+  if (authMode === "sighUp") {
+    return (
+      <div className="Auth-form-container">
+        <form className="Auth-form">
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">Sign In</h3>
+            <div className="text-center">
+              Already registered?{" "}
+              <span className="link-primary" onClick={changeAuthMode}>
+                Sign In
+              </span>
+            </div>
+            <div className="form-group mt-3">
+              <label>Email address</label>
+              <input
+                type="email"
+                className="form-control mt-1"
+                placeholder="Enter email"
+                onChange={handleEmailChange}
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control mt-1"
+                placeholder="Password"
+                onChange={handlePasswordChange}
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                className="form-control mt-1"
+                placeholder="Password"
+                onChange={handleConfirmPasswordChange}
+              />
+            </div>
+            <div className="d-grid gap-2 mt-3">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            </div>
+            <p className="text-center mt-2">
+              Forgot <a href="#">password?</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    );
+  }
 }
 
-export default LoginForm;
+export default observer(LoginForm);
