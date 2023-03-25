@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../style.css";
 import logo from "./logo.png";
 import Cart from "./shopping-cart.png";
 import User from "./user.png";
-
-import LoginForm from "../login/loginForm";
 
 function MyHeader() {
   return (

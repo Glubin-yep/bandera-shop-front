@@ -47,7 +47,7 @@ class UserStore {
 
   async logout() {
     try {
-      const response = await AuthService.logout();
+      await AuthService.logout();
       localStorage.removeItem("token");
       this.setIsAuthenticated(false);
       this.setUser({});

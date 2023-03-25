@@ -5,8 +5,6 @@ import LoginForm from './components/login/loginForm';
 import Main from './components/Main/Main';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { observer } from 'mobx-react-lite';
-import { createContext, useContext, useEffect } from 'react';
-import { Context } from './index';
 
 function App() {
   return (

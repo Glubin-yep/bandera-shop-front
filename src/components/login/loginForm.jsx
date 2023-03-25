@@ -48,8 +48,8 @@ function LoginForm() {
 
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
-    //validate confirmation password
-    if (event.target.value !== password) {
+    
+    if (confirmPassword !== password) {
       setConfirmPasswordError("Passwords do not match.");
     } else {
       setConfirmPasswordError("");
@@ -155,7 +155,7 @@ function LoginForm() {
               </button>
             </div>
             <p className="text-center mt-2">
-              Forgot <a href="#">password?</a>
+              Forgot <a href="/auth">password?</a>
             </p>
           </div>
         </form>
@@ -212,7 +212,7 @@ function LoginForm() {
               </button>
             </div>
             <p className="text-center mt-2">
-              Forgot <a href="#">password?</a>
+              Forgot <a href="/auth">password?</a>
             </p>
           </div>
         </form>
