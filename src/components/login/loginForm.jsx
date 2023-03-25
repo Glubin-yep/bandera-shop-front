@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../../index";
 import { useNavigate } from "react-router-dom";
-import "./test.css";
+import "../../style.css";
 
 function LoginForm() {
   const [email, setEmail] = useState(" ");
@@ -114,7 +114,7 @@ function LoginForm() {
       </div>
     );
   }
-  
+
   if (authMode === "signIn") {
     return (
       <div className="Auth-form-container">
