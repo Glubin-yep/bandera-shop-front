@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import store from './store/userStore';
 import { createContext} from 'react';
@@ -10,15 +10,9 @@ export const Context = createContext({
 })
 
 const Root = () => {
-    useEffect(() => {
-      document.cookie = 'cookieName=refreshToken; SameSite=None; Secure';
-    }, []);
-  
-    return (
       <Context.Provider value={{ store }}>
         <App />
       </Context.Provider>
-    );
   };
   
   ReactDOM.createRoot(document.getElementById('root')).render(<Root />);
