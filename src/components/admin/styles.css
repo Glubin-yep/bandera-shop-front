@@ -1,0 +1,42 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  label {
+    margin-top: 1rem;
+  }
+  
+  select, input, textarea {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  select {
+    width: 100%;
+  }
+  
+  textarea {
+    height: 150px;
+  }
+  
+  button {
+    margin-top: 1rem;
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #005fa3;
+  }
+  
