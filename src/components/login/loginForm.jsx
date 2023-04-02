@@ -98,7 +98,7 @@ function LoginForm() {
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">
-            <h3 className="Auth-form-title">logout</h3>
+            <h3 className="Auth-form-title log--out">Ви уже авторизовані</h3>
 
             <div className="d-grid gap-2 mt-3">
               <button
@@ -106,7 +106,7 @@ function LoginForm() {
                 className="btn btn-primary"
                 onClick={handlelogout}
               >
-                logout
+                ВИЙТИ
               </button>
             </div>
           </div>
@@ -120,30 +120,33 @@ function LoginForm() {
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Sign In</h3>
+            <h3 className="Auth-form-title">Ввійти</h3>
+            <hr className="sign--in--line"/>
             <div className="text-center">
-              Not registered yet?{" "}
+              Не зареєстровані?{" "}
               <span className="link-primary" onClick={changeAuthMode}>
-                Sign Up
+                Зареєструватися
               </span>
             </div>
             <div className="form-group mt-3">
-              <label>Email address</label>
+              <label>Електронна пошта</label>
               <input
                 type="email"
                 className="form-control mt-1"
-                placeholder="Enter email"
+                placeholder="Введіть пошту"
                 onChange={handleEmailChange}
               />
             </div>
             <div className="form-group mt-3">
-              <label>Password</label>
+              <label>Пароль</label>
               <input
                 type="password"
                 className="form-control mt-1"
-                placeholder="Enter password"
+                placeholder="Введіть пароль"
+                maxlength="20"
                 onChange={handlePasswordChange}
               />
+              <p className="limit--charachter--text">Від 6 до 20 символів</p>
             </div>
             <div className="d-grid gap-2 mt-3">
               <button
@@ -151,11 +154,11 @@ function LoginForm() {
                 className="btn btn-primary"
                 onClick={handleSubmit}
               >
-                Submit
+                ВХІД
               </button>
             </div>
             <p className="text-center mt-2">
-              Forgot <a href="/auth">password?</a>
+              Забули <a href="/auth" className="forgot--password">пароль</a>?
             </p>
           </div>
         </form>
@@ -168,37 +171,37 @@ function LoginForm() {
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Sign In</h3>
+            <h3 className="Auth-form-title">Реєстрація</h3>
             <div className="text-center">
-              Already registered?{" "}
+              Вже зареєстровані?{" "}
               <span className="link-primary" onClick={changeAuthMode}>
-                Sign In
+                Ввійти
               </span>
             </div>
             <div className="form-group mt-3">
-              <label>Email address</label>
+              <label>Електронна пошта</label>
               <input
                 type="email"
                 className="form-control mt-1"
-                placeholder="Enter email"
+                placeholder="Введіть пошту"
                 onChange={handleEmailChange}
               />
             </div>
             <div className="form-group mt-3">
-              <label>Password</label>
+              <label>Пароль</label>
               <input
                 type="password"
                 className="form-control mt-1"
-                placeholder="Password"
+                placeholder="Введіть пароль"
                 onChange={handlePasswordChange}
               />
             </div>
             <div className="form-group mt-3">
-              <label>Confirm Password</label>
+              <label>Підтвердіть пароль</label>
               <input
                 type="password"
                 className="form-control mt-1"
-                placeholder="Password"
+                placeholder="Введіть пароль"
                 onChange={handleConfirmPasswordChange}
               />
             </div>
@@ -208,12 +211,9 @@ function LoginForm() {
                 className="btn btn-primary"
                 onClick={handleSubmit}
               >
-                Submit
+                Реєстрація
               </button>
             </div>
-            <p className="text-center mt-2">
-              Forgot <a href="/auth">password?</a>
-            </p>
           </div>
         </form>
       </div>
