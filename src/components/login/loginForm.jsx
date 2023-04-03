@@ -120,7 +120,7 @@ function LoginForm() {
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Ввійти</h3>
+            <h3 className="Auth-form-title">Вхід</h3>
             <hr className="sign--in--line"/>
             <div className="text-center">
               Не зареєстровані?{" "}
