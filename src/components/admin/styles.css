@@ -15,6 +15,7 @@ form {
     border-radius: 4px;
     border: 1px solid #ccc;
     font-size: 1rem;
+    width: 100%;
   }
   
   select {
@@ -34,9 +35,11 @@ form {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     cursor: pointer;
+    width: 100%;
   }
   
   button:hover {
     background-color: #005fa3;
+    width: 100%;
   }
   

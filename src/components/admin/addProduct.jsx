@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import './styles.css'
+import "./styles.css";
+import ItemsService from "../../services/ItemsService";
 
-const AddProductForm = () => {
+const AddProductForm = ({ onCancel }) => {
   const [name, setName] = useState("");
   const [shortDescription, setShortDescription] = useState("");
   const [fullDescription, setFullDescription] = useState("");
-  const [sizes, setSizes] = useState([]);
+  const [availableSizes, setAvailableSizes] = useState([]);
   const [price, setPrice] = useState("");
   const [photo, setPhoto] = useState("");
-  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedValue, setSelectedValue] = useState("outerwears");
 
   function handleSelectChange(event) {
     setSelectedValue(event.target.value);
@@ -16,59 +17,45 @@ const AddProductForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const productData = {
       name,
       shortDescription,
       fullDescription,
-      sizes,
+      availableSizes,
       price,
       photo,
-      category: selectedValue
+      category: selectedValue,
     };
-  
-    try {
-      const response = await fetch("http://localhost:4000/api/addProduct", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(productData)
-      });
-  
-      if (!response.ok) {
-        throw new Error(
-          `Failed to add product: ${response.status} ${response.statusText}`
-        );
-      }
-  
-      console.log("Product added successfully!");
-      // reset form fields
-      setName("");
-      setShortDescription("");
-      setFullDescription("");
-      setSizes([]);
-      setPrice("");
-      setPhoto("");
-    } catch (err) {
-      console.log(`Error adding product: ${err.message}`);
-    }
+
+    ItemsService.addProduct(productData);
+    console.log("Product added successfully!");
+    // reset form fields
+    setName("");
+    setShortDescription("");
+    setFullDescription("");
+    setAvailableSizes([]);
+    setPrice("");
+    setPhoto("");
   };
-  
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
-      Category:
-      <select name="select" value={selectedValue} onChange={handleSelectChange}>
-        <option value="outerwears"> outerwears </option>
-        <option value="underwear" selected>
-          {" "}
-          underwear{" "}
-        </option>
-        <option value="footwear">footwear</option>
-        <option value="accessory">accessory</option>
-      </select>
+        Category:
+        <select
+          name="select"
+          value={selectedValue}
+          onChange={handleSelectChange}
+        >
+          <option value="outerwears"> outerwears </option>
+          <option value="underwear" selected>
+            {" "}
+            underwear{" "}
+          </option>
+          <option value="footwear">footwear</option>
+          <option value="accessory">accessory</option>
+        </select>
       </label>
 
       <label>
@@ -98,8 +85,8 @@ const AddProductForm = () => {
         Sizes:
         <input
           type="text"
-          value={sizes}
-          onChange={(e) => setSizes(e.target.value.split(","))}
+          value={availableSizes}
+          onChange={(e) => setAvailableSizes(e.target.value.split(","))}
         />
       </label>
       <label>
@@ -112,11 +99,14 @@ const AddProductForm = () => {
       </label>
       <label>
         Image:
-        <input type="text"
-         value={photo}
-         onChange={(e) => setPhoto(e.target.value)}/>
+        <input
+          type="text"
+          value={photo}
+          onChange={(e) => setPhoto(e.target.value)}
+        />
       </label>
       <button type="submit">Add Product</button>
+      <button onClick={onCancel}>Close</button>
     </form>
   );
 };
