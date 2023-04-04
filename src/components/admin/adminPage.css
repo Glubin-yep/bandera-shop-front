@@ -1,66 +1,139 @@
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
+.admin--table {
+  border-collapse: collapse;
+  width: 98%;
+  margin-bottom: 1rem;
+  margin: auto;
+}
   
-  thead {
-    background-color: #f2f2f2;
-  }
+.admin--thead {
+  background-color: #f2f2f2;
+}
+
+.admin--table--row .title {
+  text-align: center;
+}
   
-  th,
-  td {
-    text-align: left;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-  }
+.admin--table--row th,
+td {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.admin--sizes {
+  width: 1px;
+  word-spacing: 3vw;
+  padding-left: 20px;
+}
+
+.full--description {
+  white-space: pre-wrap;
+}
   
-  th {
-    font-weight: bold;
-  }
+.admin--table--row th {
+  font-weight: bold;
+}
   
-  td:last-child {
-    text-align: center;
-  }
+.admin--table--row td:last-child {
+  text-align: center;
+}
   
-  form {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    margin-top: 1rem;
-  }
+.admin--form {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-top: 1rem;
+}
   
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
+.admin--label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
   
-  input,
-  textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-  }
+.admin--input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
   
-  button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    min-width: 105px;
-    height: 30px;
-    margin: 5px;
-  }
+.admin--button {
+  background-color: #4caf50;
+  color: #fff;
+  margin: auto;
+  border: none;
+  cursor: pointer;
+  width: 400px;
+  height: 40px;
+  margin-top: 5px;
+  border-radius: 10px;
+  font-size: 20px;
+}
   
-  button:hover {
-    background-color: #3e8e41;
-  }
+.admin--button:hover {
+  background-color: #3e8e41;
+}
+
+.admin--edit {
+  background-color: #4caf50;
+  color: #fff;
+  margin: auto;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 5px;
+  padding-inline: 10px;
+}
+
+.admin--edit:hover {
+  background-color: #3e8e41;
+}
+
+.admin--button--save {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  height: 40px;
+  cursor: pointer;
+  width: 300px;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 15px;
+  font-size: 18px;
+}
+
+.admin--button--save:hover {
+  background-color: #3e8e41;
+}
   
-  image{
-    display: flex;
-    justify-content: space-between;
-    width: 200px;
-    margin: auto;
-    padding-top: 15px;
-  }
+.admin--button--delete {
+  background-color: #cc1c1c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  width: 300px;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 15px;
+  font-size: 18px;
+}
+
+.admin--button--delete:hover {
+  background-color: #bb0d0d;
+}
+
+.admin--img {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin: auto;
+  padding-top: 15px;
+}

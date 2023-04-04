@@ -91,91 +91,94 @@ function ProductsTable() {
 
   return (
     <div>
-      <button onClick={handleAddProduct}>Add Product</button>
-      <button onClick={() => refreshInfo()}>Update</button>
+      <div className="buttons">
+        <button className="admin--button" onClick={handleAddProduct}>Додати товар</button>
+        <button className="admin--button" onClick={() => refreshInfo()}>Оновити</button>
+      </div>
+      
 
       {showAddProduct && (
         <AddProduct onCancel={handleCancelAddProduct} onAdd={refreshInfo} />
       )}
-      <table>
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Name</th>
-            <th>Short Description</th>
-            <th>Full Description</th>
-            <th>Available sizes</th>
-            <th>Price</th>
-            <th>Photo</th>
-            <th>Actions</th>
+      <table className="admin--table">
+        <thead className="admin--thead">
+          <tr className="admin--table--row title">
+            <th>Категорія</th>
+            <th>Назва</th>
+            <th>Короткий опис</th>
+            <th>Повний опис</th>
+            <th>Доступні розміри</th>
+            <th>Ціна</th>
+            <th>Фото</th>
+            <th>Дії</th>
           </tr>
         </thead>
         <tbody>
           {products.map((product) => (
-            <tr key={product.id}>
+            <tr  className="admin--table--row" key={product.id}>
               <td>{product.category}</td>
               <td>{product.name}</td>
               <td>{product.shortDescription}</td>
-              <td>{product.fullDescription}</td>
-              <td>
+              <td className="full--description">{product.fullDescription}</td>
+              <td className="admin--sizes">
                 {product.availableSizes
                   ? product.availableSizes.join(", ")
                   : ""}
               </td>
               <td>{product.price}</td>
-              <td><img src= {product.photo} alt = ""></img> {product.photo}</td>
+              <td><img src= {product.photo} className="admin--img" alt = ""></img> {product.photo}</td>
               <td>
-                <button onClick={() => handleEdit(product)}>Edit</button>
+                <button className="admin--edit" onClick={() => handleEdit(product)}>Редагувати</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
       {selectedProduct && (
-        <form onSubmit={handleSubmit}>
-          <label>
+        <form className="admin--form" onSubmit={handleSubmit}>
+          <label className="admin--label">
             Short Description:
-            <input
+            <input className="admin--input"
               type="text"
               value={shortDescription}
               onChange={(e) => setShortDescription(e.target.value)}
             />
           </label>
-          <label>
+          <label className="admin--label">
             Full Description:
-            <textarea
+            <textarea className="admin--input"
               value={fullDescription}
               onChange={(e) => setFullDescription(e.target.value)}
             />
           </label>
-          <label>
+          <label className="admin--label">
             Sizes:
-            <input
+            <input className="admin--input"
               type="text"
               value={availableSizes}
               onChange={(e) => setAvailableSizes(e.target.value.split(","))}
             />
           </label>
-          <label>
+          <label className="admin--label">
             Price:
-            <input
+            <input className="admin--input"
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
           </label>
-          <label>
+          <label className="admin--label">
             Image:
-            <input
+            <input className="admin--input"
               type="text"
               value={photo}
               onChange={(e) => setPhoto(e.target.value)}
             />
           </label>
-          <button type="submit">Save Changes</button>
+          <button type="submit" className="admin--button--save">Save Changes</button>
           <button
+            className="admin--button--delete"
             type="button"
-            style={{ backgroundColor: "red" }}
             onClick={() => handleDelete()}
           >
             Delete

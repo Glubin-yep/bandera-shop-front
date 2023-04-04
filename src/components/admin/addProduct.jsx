@@ -105,9 +105,11 @@ const AddProductForm = ({ onCancel }) => {
           onChange={(e) => setPhoto(e.target.value)}
         />
       </label>
-      <button type="submit">Add Product</button>
-      <button onClick={onCancel}>Close</button>
-    </form>
+      <div className="add--product--buttons">
+        <button className="admin--add--button" type="submit">Додати товар</button>
+        <button className="admin--close--button" onClick={onCancel}>Закрити</button>
+      </div>
+      </form>
   );
 };
 
