@@ -12,10 +12,4 @@ export default class AuthService{
     static async logout(){
         return api.post('/logout')
     }
-
-    //Для перевірки авторизації
-    //TODO move this fun for another service
-    static async getUsers(){
-        return api.get('/users')
-    }
 }
