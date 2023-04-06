@@ -1,10 +1,10 @@
 .admin--table {
   border-collapse: collapse;
-  width: 98%;
+  width: 100%;
   margin-bottom: 1rem;
   margin: auto;
 }
-  
+
 .admin--thead {
   background-color: #f2f2f2;
 }
@@ -12,42 +12,32 @@
 .admin--table--row .title {
   text-align: center;
 }
-  
+
 .admin--table--row th,
 td {
   padding: 0.5rem;
   border: 1px solid #ccc;
 }
 
-.admin--sizes {
-  width: 1px;
-  word-spacing: 3vw;
-  padding-left: 20px;
-}
-
-.full--description {
-  white-space: pre-wrap;
-}
-  
 .admin--table--row th {
   font-weight: bold;
 }
-  
+
 .admin--table--row td:last-child {
   text-align: center;
 }
-  
+
 .admin--form {
   border: 1px solid #ccc;
   padding: 1rem;
   margin-top: 1rem;
 }
-  
+
 .admin--label {
   display: block;
   margin-bottom: 0.5rem;
 }
-  
+
 .admin--input {
   width: 100%;
   padding: 0.5rem;
@@ -62,9 +52,10 @@ td {
   margin-bottom: 10px;
   justify-content: space-between;
 }
-  
+
+
 .admin--button {
-  background-color: #4caf50;
+  background-color: #000;
   color: #fff;
   margin: auto;
   border: none;
@@ -75,13 +66,13 @@ td {
   border-radius: 10px;
   font-size: 20px;
 }
-  
+
 .admin--button:hover {
-  background-color: #3e8e41;
+  background-color: #323232;
 }
 
 .admin--edit {
-  background-color: #4caf50;
+  background-color: #000;
   color: #fff;
   margin: auto;
   border: none;
@@ -93,11 +84,11 @@ td {
 }
 
 .admin--edit:hover {
-  background-color: #3e8e41;
+  background-color: #323232;
 }
 
 .admin--button--save {
-  background-color: #4caf50;
+  background-color: #000;
   color: #fff;
   border: none;
   height: 40px;
@@ -110,9 +101,9 @@ td {
 }
 
 .admin--button--save:hover {
-  background-color: #3e8e41;
+  background-color: #323232;
 }
-  
+
 .admin--button--delete {
   background-color: #cc1c1c;
   color: #fff;
@@ -133,7 +124,7 @@ td {
 .admin--img {
   display: flex;
   justify-content: space-between;
-  width: 400px;
+  width: 100px;
   margin: auto;
   padding-top: 15px;
 }

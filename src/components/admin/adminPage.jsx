@@ -113,7 +113,7 @@ function ProductsTable() {
             <th>Дії</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="tbody">
           {products.map((product) => (
             <tr  className="admin--table--row" key={product.id}>
               <td>{product.category}</td>
@@ -126,9 +126,9 @@ function ProductsTable() {
                   : ""}
               </td>
               <td>{product.price}</td>
-              <td><img src= {product.photo} className="admin--img" alt = ""></img> {product.photo}</td>
+              <td><img src= {product.photo} className="admin--img" alt = ""></img></td>
               <td>
-                <button className="admin--edit" onClick={() => handleEdit(product)}>Редагувати</button>
+                <button className="admin--edit" onClick={() => handleEdit(product)}>Ред</button>
               </td>
             </tr>
           ))}
@@ -175,13 +175,13 @@ function ProductsTable() {
               onChange={(e) => setPhoto(e.target.value)}
             />
           </label>
-          <button type="submit" className="admin--button--save">Save Changes</button>
+          <button type="submit" className="admin--button--save">Зберегти зміни</button>
           <button
             className="admin--button--delete"
             type="button"
             onClick={() => handleDelete()}
           >
-            Delete
+            Видалити
           </button>
         </form>
       )}
