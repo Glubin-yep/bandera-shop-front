@@ -100,40 +100,7 @@ function ProductsTable() {
       {showAddProduct && (
         <AddProduct onCancel={handleCancelAddProduct} onAdd={refreshInfo} />
       )}
-      <table className="admin--table">
-        <thead className="admin--thead">
-          <tr className="admin--table--row title">
-            <th>Категорія</th>
-            <th>Назва</th>
-            <th>Короткий опис</th>
-            <th>Повний опис</th>
-            <th>Доступні розміри</th>
-            <th>Ціна</th>
-            <th>Фото</th>
-            <th>Дії</th>
-          </tr>
-        </thead>
-        <tbody className="tbody">
-          {products.map((product) => (
-            <tr  className="admin--table--row" key={product.id}>
-              <td>{product.category}</td>
-              <td>{product.name}</td>
-              <td>{product.shortDescription}</td>
-              <td className="full--description">{product.fullDescription}</td>
-              <td className="admin--sizes">
-                {product.availableSizes
-                  ? product.availableSizes.join(", ")
-                  : ""}
-              </td>
-              <td>{product.price}</td>
-              <td><img src= {product.photo} className="admin--img" alt = ""></img></td>
-              <td>
-                <button className="admin--edit" onClick={() => handleEdit(product)}>Ред</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+
       {selectedProduct && (
         <form className="admin--form" onSubmit={handleSubmit}>
           <label className="admin--label">
@@ -183,8 +150,43 @@ function ProductsTable() {
           >
             Видалити
           </button>
+          <button className="admin--button--delete">Закрити</button>
         </form>
       )}
+      <table className="admin--table">
+        <thead className="admin--thead">
+          <tr className="admin--table--row title">
+            <th>Категорія</th>
+            <th>Назва</th>
+            <th>Короткий опис</th>
+            <th>Повний опис</th>
+            <th>Доступні розміри</th>
+            <th>Ціна</th>
+            <th>Фото</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody className="tbody">
+          {products.map((product) => (
+            <tr  className="admin--table--row" key={product.id}>
+              <td>{product.category}</td>
+              <td>{product.name}</td>
+              <td className="short--description">{product.shortDescription}</td>
+              <td className="full--description">{product.fullDescription}</td>
+              <td className="admin--sizes">
+                {product.availableSizes
+                  ? product.availableSizes.join(", ")
+                  : ""}
+              </td>
+              <td>{product.price}</td>
+              <td><img src= {product.photo} className="admin--img" alt = ""></img></td>
+              <td>
+                <button className="admin--edit" onClick={() => handleEdit(product)}>Ред</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>      
     </div>
   );
 }

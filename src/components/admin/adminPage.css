@@ -53,7 +53,6 @@ td {
   justify-content: space-between;
 }
 
-
 .admin--button {
   background-color: #000;
   color: #fff;
@@ -124,7 +123,34 @@ td {
 .admin--img {
   display: flex;
   justify-content: space-between;
-  width: 100px;
+  width: auto;
+  height: 100px;
   margin: auto;
   padding-top: 15px;
+}
+
+td.full--description {
+  max-width: 250px; /* adjust the width as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.full--description:hover {
+  max-width: 650px;
+  overflow: visible;
+  white-space: normal;
+}
+
+td.short--description {
+  max-width: 250px; /* adjust the width as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+td.short--description:hover {
+  max-width: 650px;
+  overflow: visible;
+  white-space: normal;
 }
