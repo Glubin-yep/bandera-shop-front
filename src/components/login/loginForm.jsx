@@ -2,6 +2,7 @@ import { observer } from "mobx-react-lite";
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../../index";
 import { useNavigate } from "react-router-dom";
+import LoadingScreen from "../loading/loading";
 import "../../style.css";
 
 function LoginForm() {
@@ -12,12 +13,15 @@ function LoginForm() {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [authMode, setAuthMode] = useState("signIn");
-  const { store } = useContext(Context);
+  const { store } = useContext(Context);  
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const checkAuthentication = async () => {
+      setIsLoading(true);
       await store.checkAuth();
+      setIsLoading(false);
       console.log(store.isAuthenticated);
       if (store.isAuthenticated) {
         setAuthMode("logout");
@@ -96,6 +100,7 @@ function LoginForm() {
   if (authMode === "logout") {
     return (
       <div className="Auth-form-container">
+        {isLoading && <LoadingScreen />}
         <form className="Auth-form">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title log--out">Ви уже авторизовані</h3>

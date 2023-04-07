@@ -2,14 +2,18 @@ import React, { useContext, useState, useEffect } from "react";
 import "../../style.css";
 import DATA from "../jsons/Data.json";
 import { Context } from "../../index";
+import LoadingScreen from "../loading/loading";
 
 function Main() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { store } = useContext(Context);
+  const { store } = useContext(Context);  
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const checkAuthentication = async () => {
+      setIsLoading(true);
       await store.checkAuth();
+      setIsLoading(false);
       console.log(store.isAuthenticated);
       if (store.isAuthenticated) {
         setIsLoggedIn(true);
@@ -19,11 +23,12 @@ function Main() {
   }, [store]);
 
   if (!store.isAuthenticated) {
-    alert("Авторизуйтеся для перегляду контенту")
+    console.log("Авторизуйтеся для перегляду контенту")
   }
 
   return (
     <div className={`main ${isLoggedIn ? "" : "main blurred--div"}`}>
+      {isLoading && <LoadingScreen />}
       <div className="cloth--section" id="topCloth">
         <div className="title">
           <h1 className="title--block">

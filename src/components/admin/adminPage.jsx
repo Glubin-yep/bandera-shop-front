@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import AddProduct from "./addProduct";
 import ItemsService from "../../services/ItemsService";
+import LoadingScreen from "../loading/loading";
 import "./adminPage.css";
 
 function ProductsTable() {
@@ -15,11 +16,14 @@ function ProductsTable() {
   const [category, setCategory] = useState("");
   const [id, setId] = useState("");
   const [showAddProduct, setShowAddProduct] = useState(false);
-  const [, setShowForm] = useState(false);
+  const [, setShowForm] = useState(false);  
+  const [isLoading, setIsLoading] = useState(true);
 
   function refreshInfo() {
+    setIsLoading(true);
     ItemsService.getAllProducts().then((response) => {
       setProducts(response.data);
+      setIsLoading(false);
     });
   }
 
@@ -91,6 +95,7 @@ function ProductsTable() {
 
   return (
     <div>
+      {isLoading && <LoadingScreen />}
       <div className="buttons">
         <button className="admin--button" onClick={handleAddProduct}>Додати товар</button>
         <button className="admin--button" onClick={() => refreshInfo()}>Оновити</button>
