@@ -161,8 +161,8 @@ html {
   display: grid;
   margin-top: 20px;
   font-size: 20px;
-  justify-items: end;
-  justify-content: center;
+  justify-items: start;
+  justify-content: space-between;
 }
 
 .card--photo {
@@ -282,7 +282,7 @@ label {
 }
 
 .form-group {
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
 }
 
 .form-control {
@@ -298,10 +298,8 @@ label {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out,
-              box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-
 
 .form-control:focus {
   color: #495057;
@@ -310,7 +308,6 @@ label {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
-
 
 .mt-1 {
   margin-top: 0.25rem; /* mt-1 is equivalent to margin-top: 0.25rem */
@@ -329,7 +326,7 @@ label {
 }
 
 .mt-2 {
-margin-top: 0.5rem; /* mt-2 is equivalent to margin-top: 0.5rem */
+  margin-top: 0.5rem; /* mt-2 is equivalent to margin-top: 0.5rem */
 }
 
 .limit--charachter--text {
@@ -357,10 +354,8 @@ margin-top: 0.5rem; /* mt-2 is equivalent to margin-top: 0.5rem */
   line-height: 1.5;
   border-radius: 5px;
   cursor: pointer;
-  transition: color 0.15s ease-in-out,
-              background-color 0.15s ease-in-out,
-              border-color 0.15s ease-in-out,
-              box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .btn-primary {
@@ -370,25 +365,25 @@ margin-top: 0.5rem; /* mt-2 is equivalent to margin-top: 0.5rem */
 }
 
 .forgot--password {
-  color: rgb(0, 134, 223); 
-  text-decoration: none; 
+  color: rgb(0, 134, 223);
+  text-decoration: none;
   cursor: pointer;
 }
 
 .forgot--password:hover {
-  color: darkblue; 
+  color: darkblue;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .link-primary {
-  color: rgb(0, 134, 223); 
-  text-decoration: none; 
+  color: rgb(0, 134, 223);
+  text-decoration: none;
   cursor: pointer;
 }
 
-.link-primary:hover{
-  color: darkblue; 
+.link-primary:hover {
+  color: darkblue;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -695,5 +690,4 @@ margin-top: 0.5rem; /* mt-2 is equivalent to margin-top: 0.5rem */
   .prefix {
     font-size: calc(10px + 1vmin);
   }
-
 }

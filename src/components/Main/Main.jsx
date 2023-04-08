@@ -52,7 +52,7 @@ function Main() {
       />
 
       <CategorySection
-        category="shoes"
+        category="footwear"
         titleTop="Взуття"
         titleBottom=""
         data={data}
