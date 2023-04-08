@@ -58,7 +58,7 @@ function Main() {
         data={data}
       />
       <CategorySection
-        category="accessories"
+        category="accessory"
         titleTop="Аксесуари"
         titleBottom=""
         data={data}

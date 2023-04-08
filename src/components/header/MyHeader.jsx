@@ -25,7 +25,7 @@ function MyHeader() {
             <a href="/#footwear">Взуття</a>
           </li>
           <li>
-            <a href="/#accessories">Аксесуари</a>
+            <a href="/#accessory">Аксесуари</a>
           </li>
           <li>
             <a href="/#">
