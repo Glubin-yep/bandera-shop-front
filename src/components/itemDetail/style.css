@@ -1,0 +1,28 @@
+.item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+  }
+  
+  .item-container img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .item-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .item-container p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .item-container .price {
+    font-weight: bold;
+  }
+  

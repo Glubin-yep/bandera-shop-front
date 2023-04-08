@@ -5,8 +5,8 @@ export default class AuthService {
         return api.get('/getAll')
     }
 
-    static async getProductByName(productType, productName) {
-        return api.get(`/get/${productType}/${productName}`)
+    static async getProductById(productType, productId) {
+        return api.get(`/get/${productType}/${productId}`)
     }
 
     static async getProductsByCategory(category) {
