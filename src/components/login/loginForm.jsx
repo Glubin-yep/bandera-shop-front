@@ -123,6 +123,7 @@ function LoginForm() {
   if (authMode === "signIn") {
     return (
       <div className="Auth-form-container">
+        {isLoading && <LoadingScreen />}
         <form className="Auth-form">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Вхід</h3>
@@ -148,7 +149,7 @@ function LoginForm() {
                 type="password"
                 className="form-control mt-1"
                 placeholder="Введіть пароль"
-                maxlength="20"
+                maxLength="20"
                 onChange={handlePasswordChange}
               />
               <p className="limit--charachter--text">Від 6 до 20 символів</p>
@@ -174,6 +175,7 @@ function LoginForm() {
   if (authMode === "sighUp") {
     return (
       <div className="Auth-form-container">
+        {isLoading && <LoadingScreen />}
         <form className="Auth-form">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Реєстрація</h3>
