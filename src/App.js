@@ -1,4 +1,3 @@
-import './App.css';
 import Footer from './components/Footer/Footer';
 import MyHeader from './components/header/MyHeader';
 import LoginForm from './components/login/loginForm';
@@ -7,22 +6,22 @@ import Admin from './components/admin/adminPage';
 import ItemDetail from './components/itemDetail/itemDetail';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { observer } from 'mobx-react-lite';
+import "./style.css";
 
 function App() {
   return (
 
     <div className="App">
-      <MyHeader />
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Main />} />
-          <Route path="/auth" element={<LoginForm />} />
-          <Route path='/admin' element={<Admin />} />
-          <Route path='/items/:category/:itemId' element={<ItemDetail />} />
-        </Routes>
-      </BrowserRouter>
-
-      <Footer />
+        <MyHeader />
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Main />} />
+            <Route path="/auth" element={<LoginForm />} />
+            <Route path='/admin' element={<Admin />} />
+            <Route path='/items/:category/:itemId' element={<ItemDetail />} />
+          </Routes>
+        </BrowserRouter>
+        <Footer />
     </div>
 
   );

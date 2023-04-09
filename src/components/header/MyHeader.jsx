@@ -9,9 +9,11 @@ function MyHeader() {
     <div className="header">
       <div className="header-left">
         <img src={logo} alt="Logo" />
+        <a className="href--home" href="/">
         <span className="name">
           Bandera<sub className="prefix">shop</sub>
         </span>
+        </a>
       </div>
       <div className="header-right">
         <ul className="nav-list">

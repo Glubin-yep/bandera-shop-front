@@ -63,6 +63,9 @@ function Main() {
         titleBottom=""
         data={data}
       />
+      <div className="space">
+        
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import AddProduct from "./addProduct";
 import ItemsService from "../../services/ItemsService";
 import LoadingScreen from "../loading/loading";
-import "./adminPage.css";
+import "../../style.css";
 
 function ProductsTable() {
   const [products, setProducts] = useState([]);

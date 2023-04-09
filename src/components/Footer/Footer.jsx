@@ -2,6 +2,7 @@ import facebook from './facebook.png'
 import instagram from './instagram.png'
 import telegram from './telegram.png'
 import youtube from './youtube.png'
+import "../../style.css";
 
 function Footer() {
     return(
