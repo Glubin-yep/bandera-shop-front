@@ -30,8 +30,8 @@ function MyHeader() {
             <a href="/#accessory">Аксесуари</a>
           </li>
           <li>
-            <a href="/#">
-              <img src={Cart} alt="Cart" className="cart" />
+            <a href="/cart">
+              <img src={Cart} alt="Cart" className="cart-header" />
             </a>
           </li>
           <li>
