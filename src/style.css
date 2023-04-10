@@ -1005,6 +1005,23 @@ td.short--description:hover {
   .client--info {
     width: 80vw;
   }
+
+  .Auth-form {
+    padding: 10px;
+    width: 450px;
+  }
+
+  .Auth-form-title {
+    margin-top: 0;
+  }
+
+  .Auth-form-content {
+    padding: 20px;
+  }
+
+  .mt-2 {
+    margin-bottom: 10px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1232,6 +1249,25 @@ td.short--description:hover {
   .description--info {
     width: 300px;
   }
+
+  .Auth-form {
+    box-shadow: none;
+    width: 400px;
+  }
+}
+
+@media (max-width: 425px) {
+  .Auth-form {
+    width: 350px;
+  }
+
+  .Auth-form-content {
+    padding: 0;
+  }
+
+  .form-control {
+    width: 80vw;
+  }
 }
 
 @media (max-width: 405px) { 
@@ -1259,7 +1295,21 @@ td.short--description:hover {
   }
 }
 
+@media (max-width: 370px) {
+  .Auth-form {
+    width: 300px;
+  }
+
+  .form-control {
+    width: 80vw;
+  }
+}
+
 @media (max-width: 320px) {
+  .Auth-form {
+    width: 300px;
+  }
+  
   .description--info {
     width: 200px;
   }
