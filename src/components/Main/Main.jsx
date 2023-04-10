@@ -20,17 +20,17 @@ function Main() {
     //    console.log("Авторизуйтеся");
     //  }
     // };
-    setIsLoading(true);
     //checkAuthentication();
     getData();
-    setIsLoading(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function getData() {
+  async function getData() {    
+    setIsLoading(true);
     const newData = ItemsService.getAllProducts();
     setData((await newData).data);
-    console.log(data);
+    console.log(data);    
+    setIsLoading(false);
   }
 
   return (
