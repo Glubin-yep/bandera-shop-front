@@ -107,7 +107,7 @@ function ProductsTable() {
       )}
 
       {selectedProduct && (
-        <form className="admin--form" onSubmit={handleSubmit}>
+        <form className="form--admin admin--form" onSubmit={handleSubmit}>
           <label className="admin--label">
             Short Description:
             <input className="admin--input"

@@ -17,21 +17,23 @@ function MyHeader() {
       </div>
       <div className="header-right">
         <ul className="nav-list">
-          <li>
+          <div className="left--nav">
+            <li>
             <a href="/#outerwears">Верхній одяг</a>
-          </li>
+            </li>
+            <li>
+              <a href="/#underwear">Штани</a>
+            </li>
+            <li>
+              <a href="/#footwear">Взуття</a>
+            </li>
+            <li>
+              <a href="/#accessory">Аксесуари</a>
+            </li>
+          </div>
           <li>
-            <a href="/#underwear">Штани</a>
-          </li>
-          <li>
-            <a href="/#footwear">Взуття</a>
-          </li>
-          <li>
-            <a href="/#accessory">Аксесуари</a>
-          </li>
-          <li>
-            <a href="/#">
-              <img src={Cart} alt="Cart" className="cart" />
+            <a href="/cart">
+              <img src={Cart} alt="Cart" className="cart-header" />
             </a>
           </li>
           <li>

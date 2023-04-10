@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from 'react-use-cart';
 import ItemsService from "../../services/ItemsService";
 import LoadingScreen from "../loading/loading";
 import '../../style.css'
@@ -8,6 +9,7 @@ function ItemDetails() {
   const [item, setItem] = useState(null);
   const { category, itemId } = useParams();  
   const [isLoading, setIsLoading] = useState(true);
+  const { addItem } = useCart();
 
   useEffect(() => {
     async function getData() {
@@ -24,6 +26,17 @@ function ItemDetails() {
     return <LoadingScreen />;
   }
 
+  const handleAddToCart = () => {
+    console.log(item)
+    addItem({
+      id: item._id,
+      name: item.name,
+      price: item.price,
+      image: item.photo,
+      description: item.shortDescription,
+    });
+    alert("Товар успішно добавлено в корзину")
+  };
   
   return (
     <div className="item-container">
@@ -39,7 +52,7 @@ function ItemDetails() {
             <p className="card--info--sizes--title">Розміри</p>
             <p className="card--info--sizes">{item.availableSizes}</p>
           </div>
-          <button className="card--info--button">Додати в корзину</button>
+          <button className="card--info--button" onClick={handleAddToCart}>Додати в корзину</button>
         </div>
       </div>
       <div className="description--info">

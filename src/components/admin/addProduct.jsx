@@ -40,10 +40,11 @@ const AddProductForm = ({ onCancel }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form className="form--admin" onSubmit={handleSubmit}>
+      <label className="label--admin">
         Category:
         <select
+          className="admin--select"
           name="select"
           value={selectedValue}
           onChange={handleSelectChange}
@@ -58,48 +59,54 @@ const AddProductForm = ({ onCancel }) => {
         </select>
       </label>
 
-      <label>
+      <label className="label--admin">
         Name:
         <input
+          className="input--admin"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </label>
-      <label>
+      <label className="label--admin">
         Short Description:
         <input
+          className="input--admin"
           type="text"
           value={shortDescription}
           onChange={(e) => setShortDescription(e.target.value)}
         />
       </label>
-      <label>
+      <label className="label--admin">
         Full Description:
         <textarea
+          className="textarea--admin"
           value={fullDescription}
           onChange={(e) => setFullDescription(e.target.value)}
         />
       </label>
-      <label>
+      <label className="label--admin">
         Sizes:
         <input
+          className="input--admin"
           type="text"
           value={availableSizes}
           onChange={(e) => setAvailableSizes(e.target.value.split(","))}
         />
       </label>
-      <label>
+      <label className="label--admin">
         Price:
         <input
+          className="input--admin"
           type="number"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
       </label>
-      <label>
+      <label className="label--admin">
         Image:
         <input
+          className="input--admin"
           type="text"
           value={photo}
           onChange={(e) => setPhoto(e.target.value)}
