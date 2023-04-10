@@ -5,14 +5,12 @@ import Main from './components/Main/Main';
 import Admin from './components/admin/adminPage';
 import ItemDetail from './components/itemDetail/itemDetail';
 import Cart from './components/cart/Cart';
-import { CartProvider, useCart } from "react-use-cart";
+import { CartProvider } from "react-use-cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { observer } from 'mobx-react-lite';
 import "./style.css";
 
 function App() {
-  const { cartTotal } = useCart();
-
   return (
     <CartProvider>
       <div className="App">

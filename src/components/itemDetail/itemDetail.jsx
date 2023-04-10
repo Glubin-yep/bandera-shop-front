@@ -35,6 +35,7 @@ function ItemDetails() {
       image: item.photo,
       description: item.shortDescription,
     });
+    alert("Товар успішно добавлено в корзину")
   };
   
   return (
