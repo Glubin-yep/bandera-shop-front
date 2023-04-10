@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from './components/Footer/Footer';
+import MyHeader from './components/header/MyHeader';
+import LoginForm from './components/login/loginForm';
+import Main from './components/Main/Main';
+import Admin from './components/admin/adminPage';
+import ItemDetail from './components/itemDetail/itemDetail';
+import Cart from './components/cart/Cart';
+import { CartProvider } from "react-use-cart";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { observer } from 'mobx-react-lite';
+import "./style.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartProvider>
+      <div className="App">
+        <MyHeader />
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Main />} />
+            <Route path="/auth" element={<LoginForm />} />
+            <Route path='/admin' element={<Admin />} />
+            <Route path='/items/:category/:itemId' element={<ItemDetail />} />
+            <Route path='/cart' element={<Cart />} />
+          </Routes>
+        </BrowserRouter>
+        <Footer />
+      </div>
+    </CartProvider>
   );
 }
 
-export default App;
+export default observer(App);
