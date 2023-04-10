@@ -2,6 +2,7 @@ body {
   letter-spacing: 1px;
   user-select: none;
   margin: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 .App {
@@ -367,8 +368,16 @@ label {
 
 .btn-primary {
   color: #ffffff;
-  background-color: black;
-  border-color: black;
+  background-color: #000;
+  border: 0;
+}
+
+.btn-primary:hover {
+  background-color: #323232;
+}
+
+.btn-primary:active {
+  background-color: #757575;
 }
 
 .forgot--password {
@@ -467,6 +476,10 @@ td {
   background-color: #323232;
 }
 
+.admin--button:active {
+  background-color: #757575;
+}
+
 .admin--edit {
   background-color: #000;
   color: #fff;
@@ -481,6 +494,10 @@ td {
 
 .admin--edit:hover {
   background-color: #323232;
+}
+
+.admin--edit:active {
+  background-color: #757575;
 }
 
 .admin--button--save {
@@ -498,6 +515,10 @@ td {
 
 .admin--button--save:hover {
   background-color: #323232;
+}
+
+.admin--button--save:active {
+  background-color: #757575;
 }
 
 .admin--button--delete {
@@ -552,18 +573,18 @@ td.short--description:hover {
   white-space: normal;
 }
 
-form {
+.form--admin {
   display: flex;
   flex-direction: column;
   max-width: 800px;
   margin: 0 auto;
 }
   
-label {
+.label--admin {
   margin-top: 1rem;
 }
   
-select, input, textarea {
+.select--admin, .input--admin, .textarea--admin {
   margin-top: 0.5rem;
   padding: 0.5rem;
   border-radius: 4px;
@@ -572,11 +593,11 @@ select, input, textarea {
   width: 100%;
 }
   
-select {
+.select--admin {
   width: 100%;
 }
   
-textarea {
+.textarea--admin {
   height: 150px;
 }
 
@@ -627,29 +648,33 @@ textarea {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  
 }
 
 .main--info {
   display: flex;
-  justify-content: space-around;
-  width: 1200px;
 }
 
 .photo--info {
   width: 400px;
 }
 
+.order--info {
+  margin-left: 50px;
+  width: 600px;
+}
+
 .order--info h2 {
   margin-top: 60px;
   font-size: 40px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .card--info--price {
   margin-top: 70px;
   margin-bottom: 20px;
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 40px;
+  font-weight: 500;
 }
 
 .order--info hr {
@@ -680,6 +705,14 @@ textarea {
   margin-top: 20px;
 }
 
+.card--info--button:hover {
+  background-color: #272727;
+}
+
+.card--info--button:active {
+  background-color: #757575;
+}
+
 .description--info {
   width: 1000px;
 }
@@ -707,91 +740,126 @@ textarea {
 .cart {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  border-radius: 10px;
-  }
+}
+
+.cart--info {
+  margin: auto;
+  width: 55vw;
+}
   
-  .cart__title {
-  font-size: 20px;
-  font-weight: bold;
+.cart__title {
+  font-size: 40px;
+  font-weight: 400;
+  margin-top: 50px;
   margin-bottom: 10px;
-  }
+  text-align: center;
+}
   
-  .cart__items {
+.cart__items {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   margin-bottom: 20px;
-  }
+}
   
-  .cart__item {
+.cart__item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #b3b3b3;
-  border-top: 2px solid #b3b3b3;
-  }
+  border-bottom: 1px solid #b3b3b3;
+  border-top: 1px solid #b3b3b3;
+}
   
-  .cart__item-image {
-  height: auto;
-  width: 250px;
-  margin-right: 10px;
-  border-radius: 10px;
-  }
-  
-  .cart__item-title {
-  font-size: 24px;
-  font-weight: bold;
-  }
-  
-  .cart__item-price {
-  font-size: 24px;
-  font-weight: bold;
-  color: #555;
-  }
-  
-  .cart__total {
+.cart__item--left {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  }
-  
-  .cart__total-text {
-  margin-right: 10px;
-  }
-  
-  .cart__total-price {
-  color: #555;
-  }
+}
 
-  .cart__button {
-  background-color: #007bff;
+.cart__item-details {
+  margin-left: 40px;
+}
+
+.cart__item--right {
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+  margin-right: 10px;
+  align-items: center;
+}
+
+.cart__item-remove {
+  border: 0;
+  background-color: #cc1c1c;
+  color: #fff;
+  width: 120px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.cart__item-remove:hover {
+  background-color: #bb0d0d;
+}
+
+.cart__item-remove:active {
+  background-color: #f53e3e;
+}
+
+.cart__item-image {
+  width: 150px;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+  
+.cart__item-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+  
+.cart__item-price {
+  font-size: 24px;
+  font-weight: 400;
+}
+  
+.cart__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.cart__button {
+  background-color: #000;
   color: #fff;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 500;
   cursor: pointer;
-  }
+}
   
-  .cart__button:hover {
-  background-color: #0069d9;
-  }
+.cart__button:hover {
+  background-color: #323232;
+}
+
+.cart__button:active {
+  background-color: #757575;
+}
   
-  .cart__empty {
-  text-align: center;
-  font-size: 16px;
+.cart__empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
   color: #777;
-  margin-bottom: 20px;
-  }
+}
   
-  .cart__empty-button {
+.cart__empty-button {
   background-color: #eee;
   color: #555;
   border: none;
@@ -800,8 +868,74 @@ textarea {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  }
+}
   
-  .cart__empty-button:hover {
+.cart__empty-button:hover {
   background-color: #ddd;
-  }
+}
+
+.cart__item-controls {
+  display: grid;
+  font-size: 20px;
+}
+
+.cart__item-quantity {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cart__item-button {
+  border: 0;
+  background-color: #fff;
+  font-size: 30px;
+  color: #000;
+}
+
+.minus {
+  letter-spacing: -3px;
+  margin-left: -3px;
+}
+
+.cart--empty--button {
+  display: flex;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.client--info {
+  width: 50vw;
+  margin: auto;
+}
+
+.client--info--field {
+  width: 500px;
+  margin: auto;
+}
+
+.client--info--data {
+  border: 0;
+  border-bottom: #a5a5a5 solid 1px;
+  width: calc(100% - 20px);
+  margin-top: 20px;
+  font-size: 18px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+}
+
+.client--info--data:focus {
+  outline: none;
+}
+
+.number--field::-webkit-outer-spin-button,
+.number--field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.order--button {
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
