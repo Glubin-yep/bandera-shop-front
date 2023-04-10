@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import AddProduct from "./addProduct";
+import EditProduct from "./editProduct";
 import ItemsService from "../../services/ItemsService";
 import LoadingScreen from "../loading/loading";
 import "../../style.css";
@@ -7,22 +8,17 @@ import "../../style.css";
 function ProductsTable() {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [name, setName] = useState("");
-  const [shortDescription, setShortDescription] = useState("");
-  const [fullDescription, setFullDescription] = useState("");
-  const [availableSizes, setAvailableSizes] = useState([]);
-  const [price, setPrice] = useState(0);
-  const [photo, setPhoto] = useState("");
-  const [category, setCategory] = useState("");
-  const [id, setId] = useState("");
   const [showAddProduct, setShowAddProduct] = useState(false);
-  const [, setShowForm] = useState(false);  
+  const [showEditProduct, setShowEditProduct] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [sortColumn, setSortColumn] = useState(null);
+  const [sortDirection, setSortDirection] = useState("asc");
 
   function refreshInfo() {
     setIsLoading(true);
     ItemsService.getAllProducts().then((response) => {
       setProducts(response.data);
+      setSortColumn(null);
       setIsLoading(false);
     });
   }
@@ -31,149 +27,94 @@ function ProductsTable() {
     refreshInfo();
   }, []);
 
-  const handleEdit = (product) => {
-    setSelectedProduct(product);
-    setName(product.name);
-    setShortDescription(product.shortDescription);
-    setFullDescription(product.fullDescription);
-    setAvailableSizes(product.availableSizes);
-    setPrice(product.price);
-    setPhoto(product.photo);
-    setCategory(product.category);
-    setId(product._id);
-    setShowForm(true);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    ItemsService.updateProduct({
-        name,
-        shortDescription,
-        fullDescription,
-        availableSizes,
-        price,
-        photo,
-        category,
-      })
-      .then((response) => {
-        const updatedProduct = response.data;
-        setProducts((prevProducts) =>
-          prevProducts.map((product) =>
-            product.id === updatedProduct.id ? updatedProduct : product
-          )
-        );
-        setSelectedProduct(null);
-        setName("");
-        setShortDescription("");
-        setFullDescription("");
-        setAvailableSizes([]);
-        setPrice(0);
-        setPhoto("");
-        setShowForm(false);
-        refreshInfo();
-      });
-  };
-
-  const handleDelete = () => {
-    ItemsService.deleteProductById({
-        category,
-        id,
-      })
-      .then(() => {
-        refreshInfo();
-        setShowForm(false);
-      });
-  };
-
   const handleAddProduct = () => {
     setShowAddProduct(true);
   };
 
   const handleCancelAddProduct = () => {
-    setShowAddProduct(false); // Set the state variable to false to hide the component
+    setShowAddProduct(false);
   };
+  
+  const handleOpenEditProduct = (product) => {
+    setSelectedProduct(product);
+    setShowEditProduct(true);
+  };
+
+  const handleCloseEditProduct = () =>{
+    setShowEditProduct(false);
+    refreshInfo();
+  };
+
+  const handleSort = (columnName) => {
+    let direction = "asc";
+    if (sortColumn === columnName && sortDirection === "asc") {
+      direction = "desc";
+    }
+    setSortColumn(columnName);
+    setSortDirection(direction);
+
+    const sorted = products.slice().sort((a, b) => {
+      if (a[columnName] < b[columnName]) return direction === "asc" ? -1 : 1;
+      if (a[columnName] > b[columnName]) return direction === "asc" ? 1 : -1;
+      return 0;
+    });
+    setProducts(sorted);
+  };
+
+  const sortArrow = sortDirection === "asc" ? "↑" : "↓";
 
   return (
     <div>
       {isLoading && <LoadingScreen />}
       <div className="buttons">
-        <button className="admin--button" onClick={handleAddProduct}>Додати товар</button>
-        <button className="admin--button" onClick={() => refreshInfo()}>Оновити</button>
+        <button className="admin--button" onClick={handleAddProduct}>
+          Додати товар
+        </button>
+        <button className="admin--button" onClick={() => refreshInfo()}>
+          Оновити
+        </button>
       </div>
-      
 
       {showAddProduct && (
-        <AddProduct onCancel={handleCancelAddProduct} onAdd={refreshInfo} />
+        <div className="overlay">
+          <div className="overlay--content">
+            <AddProduct onCancel={handleCancelAddProduct} onAdd={refreshInfo} />
+          </div>
+        </div>
       )}
 
-      {selectedProduct && (
-        <form className="form--admin admin--form" onSubmit={handleSubmit}>
-          <label className="admin--label">
-            Short Description:
-            <input className="admin--input"
-              type="text"
-              value={shortDescription}
-              onChange={(e) => setShortDescription(e.target.value)}
-            />
-          </label>
-          <label className="admin--label">
-            Full Description:
-            <textarea className="admin--input"
-              value={fullDescription}
-              onChange={(e) => setFullDescription(e.target.value)}
-            />
-          </label>
-          <label className="admin--label">
-            Sizes:
-            <input className="admin--input"
-              type="text"
-              value={availableSizes}
-              onChange={(e) => setAvailableSizes(e.target.value.split(","))}
-            />
-          </label>
-          <label className="admin--label">
-            Price:
-            <input className="admin--input"
-              type="number"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-          </label>
-          <label className="admin--label">
-            Image:
-            <input className="admin--input"
-              type="text"
-              value={photo}
-              onChange={(e) => setPhoto(e.target.value)}
-            />
-          </label>
-          <button type="submit" className="admin--button--save">Зберегти зміни</button>
-          <button
-            className="admin--button--delete"
-            type="button"
-            onClick={() => handleDelete()}
-          >
-            Видалити
-          </button>
-          <button className="admin--button--delete">Закрити</button>
-        </form>
+      {selectedProduct && showEditProduct && (
+      <div className="overlay">
+          <div className="overlay--content">
+            <EditProduct product={selectedProduct} onClose={handleCloseEditProduct}/>
+          </div>
+        </div>
       )}
       <table className="admin--table">
         <thead className="admin--thead">
           <tr className="admin--table--row title">
-            <th>Категорія</th>
-            <th>Назва</th>
+            <th onClick={() => handleSort("category")}>
+              Категорія
+              {sortColumn === "category" ? sortArrow : ""}
+            </th>
+            <th onClick={() => handleSort("name")}>
+              Назва
+              {sortColumn === "name" ? sortArrow : ""}
+            </th>
             <th>Короткий опис</th>
             <th>Повний опис</th>
             <th>Доступні розміри</th>
-            <th>Ціна</th>
+            <th onClick={() => handleSort("price")}>
+              Ціна
+              {sortColumn === "price" ? sortArrow : ""}
+            </th>
             <th>Фото</th>
             <th>Дії</th>
           </tr>
         </thead>
         <tbody className="tbody">
           {products.map((product) => (
-            <tr  className="admin--table--row" key={product.id}>
+            <tr className="admin--table--row" key={product.id}>
               <td>{product.category}</td>
               <td>{product.name}</td>
               <td className="short--description">{product.shortDescription}</td>
@@ -184,14 +125,21 @@ function ProductsTable() {
                   : ""}
               </td>
               <td>{product.price}</td>
-              <td><img src= {product.photo} className="admin--img" alt = ""></img></td>
               <td>
-                <button className="admin--edit" onClick={() => handleEdit(product)}>Ред</button>
+                <img src={product.photo} className="admin--img" alt=""></img>
+              </td>
+              <td>
+                <button
+                  className="admin--edit"
+                  onClick={() => handleOpenEditProduct(product)}
+                >
+                  Ред
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
-      </table>      
+      </table>
     </div>
   );
 }
