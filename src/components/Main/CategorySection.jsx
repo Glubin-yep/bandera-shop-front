@@ -18,7 +18,7 @@ function CategorySection({ category, titleTop, titleBottom, data }) {
           .map((item) => (
             <Link to={`/items/${item.category}/${item._id}`} className="card--href" key={item._id}>
               <div key={item._id} className="card">
-                <img src={item.photo} className="card--photo" alt="" />
+                <img src={item.photo} className="card--photo" alt="" loading="lazy"/>
                 <span className="card--title">{item.name}</span>
                 <span className="card--sizes">{item.availableSizes}</span>
                 <span className="card--price">{item.price} грн.</span>

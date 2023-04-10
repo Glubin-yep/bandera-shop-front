@@ -42,7 +42,7 @@ function ItemDetails() {
     <div className="item-container">
       <div className="main--info">
         <div className="main--info--photo">
-          <img className="photo--info" src={item.photo} alt={item.name} />
+          <img className="photo--info" src={item.photo} alt={item.name} loading="lazy"/>
         </div>
         <div className="order--info">
           <h2>{item.name}</h2>
