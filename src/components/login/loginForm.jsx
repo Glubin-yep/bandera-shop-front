@@ -30,6 +30,14 @@ function LoginForm() {
     checkAuthentication();
   }, [store]);
 
+  useEffect(() => {
+    if (confirmPassword !== password) {
+      setConfirmPasswordError("Passwords do not match.");
+    } else {
+      setConfirmPasswordError("");
+    }
+  }, [confirmPassword, password]);
+
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
 
@@ -52,12 +60,6 @@ function LoginForm() {
 
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
-    
-    if (confirmPassword !== password) {
-      setConfirmPasswordError("Passwords do not match.");
-    } else {
-      setConfirmPasswordError("");
-    }
   };
 
   const changeAuthMode = () => {
