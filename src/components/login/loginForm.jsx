@@ -13,7 +13,7 @@ function LoginForm() {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [authMode, setAuthMode] = useState("signIn");
-  const { store } = useContext(Context);  
+  const { store } = useContext(Context);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -79,19 +79,27 @@ function LoginForm() {
       return;
     }
 
-    if (confirmPasswordError) {
+    if (authMode === "sighUp" && confirmPasswordError) {
       alert(confirmPasswordError.concat());
       return;
     }
 
     if (authMode === "signIn") {
+      setIsLoading(true);
       await store.Login(email, password);
-      navigate("/");
+      setIsLoading(false);
+      if (store.isAuthenticated) {
+        navigate("/");
+      }
     }
 
     if (authMode === "sighUp") {
+      setIsLoading(true);
       await store.registration(email, password);
-      navigate("/");
+      setIsLoading(false);
+      if (store.isAuthenticated) {
+        navigate("/");
+      }
     }
   };
 
@@ -129,7 +137,7 @@ function LoginForm() {
         <form className="Auth-form">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Вхід</h3>
-            <hr className="sign--in--line"/>
+            <hr className="sign--in--line" />
             <div className="text-center">
               Не зареєстровані?{" "}
               <span className="link-primary" onClick={changeAuthMode}>
@@ -166,7 +174,11 @@ function LoginForm() {
               </button>
             </div>
             <p className="text-center mt-2">
-              Забули <a href="/auth" className="forgot--password">пароль</a>?
+              Забули{" "}
+              <a href="/auth" className="forgot--password">
+                пароль
+              </a>
+              ?
             </p>
           </div>
         </form>
