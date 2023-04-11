@@ -79,7 +79,7 @@ function LoginForm() {
       return;
     }
 
-    if (confirmPasswordError) {
+    if (authMode === "sighUp" && confirmPasswordError) {
       alert(confirmPasswordError.concat());
       return;
     }
