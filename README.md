@@ -1,14 +1,19 @@
 # BanderaShop-Front
-## Figma prototype 
-https://www.figma.com/file/RTYICdIyXsvDtAkc3Q3ICK/Cloth-Store?node-id=0%3A1&t=n43KU8d2tc9WTbOT-1
+## WEB
+https://banderashop.netlify.app/
 
 ## Installation
 ```git
-git clone https://github.com/Glubin-yep/BanderaShop-Front
+git clone https://github.com/Glubin-yep/bandera-shop-front
 ```
 
-## При першому засупуску після клонування ОБОВ'ЯЗКОВО!!!
+## При першому засупуску після клонування
 ```sh
-npm install
+npm install 
 ```
+- Змніти API_URL в ./http/index.js на http://localhost:4000/api
 
+## Для запуску
+```sh
+npm run start
+```
