@@ -100,7 +100,7 @@ function LoginForm() {
       await store.registration(email, password);
       setIsLoading(false);
       if (store.isAuthenticated) {
-        navigate("/");
+        navigate("/email-confirmation");
       }
     }
   };

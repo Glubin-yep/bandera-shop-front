@@ -4,6 +4,8 @@ import LoginForm from './components/login/loginForm';
 import Main from './components/Main/Main';
 import Admin from './components/admin/adminPage';
 import ItemDetail from './components/itemDetail/itemDetail';
+import EmailConfirmationPage from './components/login/EmailConfirmationPage';
+import EmailConfirmationSuccessPage from './components/login/EmailConfirmationSuccessPage';
 import Cart from './components/cart/Cart';
 import { CartProvider } from "react-use-cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -20,6 +22,8 @@ function App() {
             <Route path='/' element={<Main />} />
             <Route path="/auth" element={<LoginForm />} />
             <Route path='/admin' element={<Admin />} />
+            <Route path='/email-confirmation' element={<EmailConfirmationPage />}/>
+            <Route path='/email-confirmation-success' element={<EmailConfirmationSuccessPage />}/>
             <Route path='/items/:category/:itemId' element={<ItemDetail />} />
             <Route path='/cart' element={<Cart />} />
           </Routes>
