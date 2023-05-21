@@ -1,10 +1,11 @@
 import React from "react";
+import '../../style.css'
 
 function EmailConfirmationPage() { 
   return (
-    <div>
-      <h3>Email Confirmation</h3>
-      <p>Please confirm your email to continue working.</p>
+    <div className="email--confirm">
+      <h3 className="email--confirm--title">Email Confirmation</h3>
+      <p className="email--confirm--text">Please confirm your email to continue working.</p>
     </div>
   );
 }

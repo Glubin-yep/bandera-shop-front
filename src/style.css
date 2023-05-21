@@ -964,6 +964,33 @@ td.short--description:hover {
   width: 100%;
 }
 
+.email--confirm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.email--confirm--button{
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+  
+.email--confirm--button:hover {
+  background-color: #323232;
+}
+
+.email--confirm--button:active {
+  background-color: #757575;
+}
+
 @media (max-width: 1050px) {
   .header {
     padding-left: 10px;

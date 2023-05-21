@@ -11,6 +11,7 @@ import { CartProvider } from "react-use-cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { observer } from 'mobx-react-lite';
 import "./style.css";
+import ErrorPage from './components/erorpage/ErrorPage';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path='/email-confirmation-success' element={<EmailConfirmationSuccessPage />}/>
             <Route path='/items/:category/:itemId' element={<ItemDetail />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
         <Footer />
