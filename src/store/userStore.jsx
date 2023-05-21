@@ -66,7 +66,6 @@ class UserStore {
       this.setIsAuthenticated(true);
       this.setUser(response.data.user);
     } catch (e) {
-      alert(e.response?.data?.message);
       console.log(e.response?.data?.message);
     }
   }
