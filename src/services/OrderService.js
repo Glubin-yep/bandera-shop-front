@@ -21,7 +21,7 @@ export default class OrderService {
         })
     }
 
-    static async deleteOrder(orderId) {
+    static async deleteOrderById(orderId) {
         return api.delete(`/deleteOrder/${orderId}`)
     }
 }
