@@ -50,7 +50,7 @@ const EditOrderForm = ({ order, onClose }) => {
   return (
     <form className="form--admin admin--form" onSubmit={handleSubmit}>
       <label className="admin--label">
-        status
+        Статус
         <input
           className="admin--input"
           type="text"
@@ -59,7 +59,7 @@ const EditOrderForm = ({ order, onClose }) => {
         />
       </label>
       <label className="admin--label">
-        email
+        Емейл
         <input
           className="admin--input"
           type="text"
@@ -68,15 +68,15 @@ const EditOrderForm = ({ order, onClose }) => {
         />
       </label>
       <label className="admin--label">
-        name
+        Ім'я
         <input className="admin--input" type="text" value={name} readOnly />
       </label>
       <label className="admin--label">
-        Full Description:
+        Номер телефону:
         <input className="admin--input" value={phone} readOnly />
       </label>
       <label className="admin--label">
-        Sizes:
+        Відділення пошти:
         <input
           className="admin--input"
           type="text"
@@ -85,15 +85,15 @@ const EditOrderForm = ({ order, onClose }) => {
         />
       </label>
       <label className="admin--label">
-        Price:
+        Область:
         <input className="admin--input" type="number" value={region} readOnly />
       </label>
       <label className="admin--label">
-        Image:
+        Місто:
         <input className="admin--input" type="text" value={city} readOnly />
       </label>
       <label className="admin--label">
-        Image:
+        Кількість товару:
         <input
           className="admin--input"
           type="text"

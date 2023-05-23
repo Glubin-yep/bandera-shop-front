@@ -97,12 +97,12 @@ function OrderTable({
             Статус
             {sortColumn === "status" ? sortArrow : ""}
           </th>
-          <th> name </th>
-          <th> phone </th>
-          <th>postoffice</th>
-          <th>region</th>
-          <th>items</th>
-          <th>email</th>
+          <th>Ім'я</th>
+          <th>Номер телефону</th>
+          <th>Відділення пошти</th>
+          <th>Область</th>
+          <th>Речі</th>
+          <th>Емейл</th>
         </tr>
       </thead>
       <tbody className="tbody">
@@ -112,7 +112,7 @@ function OrderTable({
             <td>{order.name}</td>
             <td>{order.phone}</td>
             <td>{order.postoffice}</td>
-            <td> {order.region} </td>
+            <td>{order.region}</td>
             <td>{order.items.length}</td>
             <td>{order.email}</td>
             <td>
