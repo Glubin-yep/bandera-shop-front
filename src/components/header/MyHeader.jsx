@@ -56,7 +56,7 @@ function MyHeader() {
             onBlur={() => {
               const timeoutId = setTimeout(() => {
                 setIsSearchFocused(false);
-              }, 50);
+              }, 100);
               setBlurTimeout(timeoutId);
             }}
             placeholder="Пошук..."
