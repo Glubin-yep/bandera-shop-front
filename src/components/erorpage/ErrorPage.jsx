@@ -11,8 +11,8 @@ function ErrorPage() {
 
   return (
     <div className="email--confirm">
-      <h1>The page is not found</h1>
-      <button className="email--confirm--button" onClick={handleContinue}>Go to Home</button>
+      <h2>Сторінка не знайдена</h2>
+      <button className="email--confirm--button" onClick={handleContinue}>На Головну</button>
     </div>
   );
 }

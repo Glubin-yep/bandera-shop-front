@@ -11,9 +11,9 @@ function EmailConfirmationSuccessPage() {
 
   return (
     <div className="email--confirm">
-      <h3 className="email--confirm--title">Email Confirmation Successful</h3>
-      <p className="email--confirm--text">Your email has been successfully confirmed.</p>
-      <button className="email--confirm--button" onClick={handleContinue}>Continue</button>
+      <h3 className="email--confirm--title">Підтвердження паролю успішне</h3>
+      <p className="email--confirm--text">Ваш пароль був успішно підтверджений.</p>
+      <button className="email--confirm--button" onClick={handleContinue}>Продовжити</button>
     </div>
   );
 }

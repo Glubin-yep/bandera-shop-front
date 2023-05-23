@@ -4,8 +4,8 @@ import '../../style.css'
 function EmailConfirmationPage() { 
   return (
     <div className="email--confirm">
-      <h3 className="email--confirm--title">Email Confirmation</h3>
-      <p className="email--confirm--text">Please confirm your email to continue working.</p>
+      <h3 className="email--confirm--title">Підтвердження паролю</h3>
+      <p className="email--confirm--text">Будь ласка підтвердіть емайл, щоб продовжити.</p>
     </div>
   );
 }
