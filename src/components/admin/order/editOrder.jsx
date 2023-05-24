@@ -86,7 +86,7 @@ const EditOrderForm = ({ order, onClose }) => {
       </label>
       <label className="admin--label">
         Область:
-        <input className="admin--input" type="number" value={region} readOnly />
+        <input className="admin--input" type="text" value={region} readOnly />
       </label>
       <label className="admin--label">
         Місто:
