@@ -30,11 +30,6 @@ function MyHeader() {
     }
   }, [data, searchQuery]);
 
-  useEffect(() => {
-    clearTimeout(blurTimeout);
-  }, [searchQuery]);
-
-
   return (
     <div className="header">
       <div className="header-left">
@@ -56,7 +51,7 @@ function MyHeader() {
             onBlur={() => {
               const timeoutId = setTimeout(() => {
                 setIsSearchFocused(false);
-              }, 100);
+              }, 250);
               setBlurTimeout(timeoutId);
             }}
             placeholder="Пошук..."
