@@ -10,7 +10,6 @@ function MyHeader() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState(null);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const [blurTimeout, setBlurTimeout] = useState(null);
 
   useEffect(() => {
     getData();
@@ -47,13 +46,8 @@ function MyHeader() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setIsSearchFocused(true)}
-            onBlur={() => {
-              const timeoutId = setTimeout(() => {
-                setIsSearchFocused(false);
-              }, 250);
-              setBlurTimeout(timeoutId);
-            }}
+            onClick={() => setIsSearchFocused(!isSearchFocused)}
+
             placeholder="Пошук..."
           />
         </div>
