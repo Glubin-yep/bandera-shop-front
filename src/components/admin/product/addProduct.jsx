@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "../../style.css";
-import ItemsService from "../../services/ItemsService";
+import "../../../style.css";
+import ItemsService from "../../../services/ItemsService";
 
 const AddProductForm = ({ onCancel }) => {
   const [name, setName] = useState("");
