@@ -3,6 +3,7 @@ import "../../style.css";
 import LoadingScreen from "../loading/loading";
 import ItemsService from "../../services/ItemsService";
 import CategorySection from "./CategorySection";
+import ToTopButton from "./ToTopButton";
 
 function Main() {
   //const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -64,7 +65,7 @@ function Main() {
         data={data}
       />
       <div className="space">
-        
+        <ToTopButton />
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import { useCart } from "react-use-cart";
+import React from "react";
 import "../../style.css";
+import SendOrderForm from "./SendOrderForm";
 
 function Cart() {
   const {
@@ -12,29 +14,27 @@ function Cart() {
     emptyCart,
   } = useCart();
 
-  if (isEmpty) return (
-    <div className="empty--cart--view">
-      <h1 className="cart__title">КОРЗИНА</h1>
-      <p className="cart__empty">Ваша корзина пуста</p>
-    </div>
-  );
-
-  console.log(items);
+  if (isEmpty)
+    return (
+      <div className="empty--cart--view">
+        <h1 className="cart__title">КОРЗИНА</h1>
+        <p className="cart__empty">Ваша корзина пуста</p>
+      </div>
+    );
 
   return (
     <div className="cart">
       <h1 className="cart__title">КОРЗИНА</h1>
       <div className="cart--info">
-          <p className="cart__total">
+        <p className="cart__total">
           <span className="cart__total-text">
             Загальна кількість: {totalUniqueItems}
           </span>
           <span className="cart__total-price">Сума: {cartTotal} грн.</span>
-          </p>
+        </p>
         <div className="cart__items">
           {items.map((item) => (
             <div className="cart__item" key={item.id}>
-
               <div className="cart__item--left">
                 <img
                   className="cart__item-image"
@@ -51,14 +51,18 @@ function Cart() {
                 <div className="cart__item-controls">
                   <button
                     className="cart__item-button"
-                    onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
+                    onClick={() =>
+                      updateItemQuantity(item.id, item.quantity + 1)
+                    }
                   >
                     +
                   </button>
                   <span className="cart__item-quantity">{item.quantity}</span>
                   <button
                     className="cart__item-button minus"
-                    onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
+                    onClick={() =>
+                      updateItemQuantity(item.id, item.quantity - 1)
+                    }
                     disabled={item.quantity === 1}
                   >
                     --
@@ -70,7 +74,7 @@ function Cart() {
                 >
                   Видалити
                 </button>
-              </div> 
+              </div>
             </div>
           ))}
         </div>
@@ -84,52 +88,7 @@ function Cart() {
           </button>
         )}
       </div>
-      <div className="client--info">
-        <h1 className="cart__title">ДАНІ</h1>
-        <div className="client--info--field">
-              <input
-                type="text"
-                className="client--info--data pib"
-                placeholder="ПІБ"
-                maxLength="20"
-              />
-        </div>
-        <div className="client--info--field">
-              <input
-                type="number"
-                className="client--info--data phone number--field"
-                placeholder="Номер телефону"
-                maxLength="20"
-              />
-        </div>
-        <div className="client--info--field">
-              <input
-                type="text"
-                className="client--info--data region"
-                placeholder="Область"
-                maxLength="20"
-              />
-        </div>
-        <div className="client--info--field">
-              <input
-                type="text"
-                className="client--info--data city"
-                placeholder="Місто"
-                maxLength="20"
-              />
-        </div>
-        <div className="client--info--field">
-              <input
-                type="number"
-                className="client--info--data postoffice number--field"
-                placeholder="Відділення"
-                maxLength="20"
-              />
-        </div>
-        <button className="cart__button order--button">
-            Оформити замовлення
-        </button>
-      </div>
+      <SendOrderForm cart={items} clearCart={() => emptyCart()} />
     </div>
   );
 }

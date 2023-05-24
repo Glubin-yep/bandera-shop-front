@@ -32,4 +32,8 @@ export default class AuthService {
     static async deleteProductById(category, id) {
         return api.post('/deleteProduct', { category, id })
     }
+
+    static async sendStatusTransactionOnEmail() {
+        return api.get(`/sendEmail`)
+    }
 }

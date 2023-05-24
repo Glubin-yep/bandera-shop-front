@@ -1,8 +1,10 @@
-import { observer } from "mobx-react-lite";
 import React, { useContext, useState, useEffect } from "react";
+import { observer } from "mobx-react-lite";
 import { Context } from "../../index";
 import { useNavigate } from "react-router-dom";
-import LoadingScreen from "../loading/loading";
+import LoggedInForm from "./LoggedInForm";
+import SignInForm from "./SignInForm";
+import SignUpForm from "./SignUpForm";
 import "../../style.css";
 
 function LoginForm() {
@@ -63,7 +65,7 @@ function LoginForm() {
   };
 
   const changeAuthMode = () => {
-    setAuthMode(authMode === "signIn" ? "sighUp" : "signIn");
+    setAuthMode(authMode === "signIn" ? "signUp" : "signIn");
   };
 
   const handleSubmit = async (event) => {
@@ -79,7 +81,7 @@ function LoginForm() {
       return;
     }
 
-    if (authMode === "sighUp" && confirmPasswordError) {
+    if (authMode === "signUp" && confirmPasswordError) {
       alert(confirmPasswordError.concat());
       return;
     }
@@ -93,12 +95,12 @@ function LoginForm() {
       }
     }
 
-    if (authMode === "sighUp") {
+    if (authMode === "signUp") {
       setIsLoading(true);
       await store.registration(email, password);
       setIsLoading(false);
       if (store.isAuthenticated) {
-        navigate("/");
+        navigate("/email-confirmation");
       }
     }
   };
@@ -109,135 +111,32 @@ function LoginForm() {
 
   if (authMode === "logout") {
     return (
-      <div className="Auth-form-container">
-        {isLoading && <LoadingScreen />}
-        <form className="Auth-form">
-          <div className="Auth-form-content">
-            <h3 className="Auth-form-title log--out">Ви уже авторизовані</h3>
-
-            <div className="d-grid gap-2 mt-3">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={handlelogout}
-              >
-                ВИЙТИ
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+      <LoggedInForm isLoading={isLoading} handlelogout={handlelogout} />
     );
   }
 
   if (authMode === "signIn") {
     return (
-      <div className="Auth-form-container">
-        {isLoading && <LoadingScreen />}
-        <form className="Auth-form">
-          <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Вхід</h3>
-            <hr className="sign--in--line" />
-            <div className="text-center">
-              Не зареєстровані?{" "}
-              <span className="link-primary" onClick={changeAuthMode}>
-                Зареєструватися
-              </span>
-            </div>
-            <div className="form-group mt-3">
-              <label>Електронна пошта</label>
-              <input
-                type="email"
-                className="form-control mt-1"
-                placeholder="Введіть пошту"
-                onChange={handleEmailChange}
-              />
-            </div>
-            <div className="form-group mt-3">
-              <label>Пароль</label>
-              <input
-                type="password"
-                className="form-control mt-1"
-                placeholder="Введіть пароль"
-                maxLength="20"
-                onChange={handlePasswordChange}
-              />
-              <p className="limit--charachter--text">Від 6 до 20 символів</p>
-            </div>
-            <div className="d-grid gap-2 mt-3">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={handleSubmit}
-              >
-                ВХІД
-              </button>
-            </div>
-            <p className="text-center mt-2">
-              Забули{" "}
-              <a href="/auth" className="forgot--password">
-                пароль
-              </a>
-              ?
-            </p>
-          </div>
-        </form>
-      </div>
+      <SignInForm
+        isLoading={isLoading}
+        changeAuthMode={changeAuthMode}
+        handleEmailChange={handleEmailChange}
+        handlePasswordChange={handlePasswordChange}
+        handleSubmit={handleSubmit}
+      />
     );
   }
 
-  if (authMode === "sighUp") {
+  if (authMode === "signUp") {
     return (
-      <div className="Auth-form-container">
-        {isLoading && <LoadingScreen />}
-        <form className="Auth-form">
-          <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Реєстрація</h3>
-            <div className="text-center">
-              Вже зареєстровані?{" "}
-              <span className="link-primary" onClick={changeAuthMode}>
-                Ввійти
-              </span>
-            </div>
-            <div className="form-group mt-3">
-              <label>Електронна пошта</label>
-              <input
-                type="email"
-                className="form-control mt-1"
-                placeholder="Введіть пошту"
-                onChange={handleEmailChange}
-              />
-            </div>
-            <div className="form-group mt-3">
-              <label>Пароль</label>
-              <input
-                type="password"
-                className="form-control mt-1"
-                placeholder="Введіть пароль"
-                onChange={handlePasswordChange}
-              />
-            </div>
-            <div className="form-group mt-3">
-              <label>Підтвердіть пароль</label>
-              <input
-                type="password"
-                className="form-control mt-1"
-                placeholder="Введіть пароль"
-                onChange={handleConfirmPasswordChange}
-              />
-            </div>
-            <div className="d-grid gap-2 mt-3">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={handleSubmit}
-              >
-                Реєстрація
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+      <SignUpForm
+        isLoading={isLoading}
+        changeAuthMode={changeAuthMode}
+        handleEmailChange={handleEmailChange}
+        handlePasswordChange={handlePasswordChange}
+        handleConfirmPasswordChange={handleConfirmPasswordChange}
+        handleSubmit={handleSubmit}
+      />
     );
   }
 }
